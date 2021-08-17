@@ -1,0 +1,63 @@
+<app-header></app-header>
+
+<div class="flex"> 
+
+<div class="leftPanel">
+    <app-left-panel></app-left-panel>
+
+</div>
+
+<div class="dashboard">
+<button mat-raised-button (click)="adduser()" class="addBtn">{{'addUser' | translate}}</button>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'FirstName' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'LastName' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="phoneNo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'PhoneNumber' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.phoneNo}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'email' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="gender">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'gender' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'address' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+        </ng-container>
+        <ng-container matColumnDef="more">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element; let i = index">
+                <button mat-button [matMenuTriggerFor]="menu" type="button" class="icon icon--ellipsis-v mat-menu right">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button type="button" mat-menu-item (click)="editUser(element , i)">{{'editUser' | translate}}</button>
+                    <button type="button" mat-menu-item (click)="deleteUser(element , i)">{{'deleteUser' | translate}}</button>
+                </mat-menu>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+</div>
+
+<!-- <mat-paginator [pageSizeOptions]="[1, 5, 10, 25, 100]" showFirstLastButtons  aria-label="Select page of users"></mat-paginator> -->

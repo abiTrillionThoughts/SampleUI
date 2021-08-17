@@ -1,0 +1,23 @@
+{
+    "Login": "Login",
+    "Username": "Username",
+    "Password" : "Password",
+    "Dashboard": "Dashboard",
+    "FirstName" : "FirstName",
+    "LastName" : "LastName",
+    "PhoneNumber": "Phone Number",
+    "email": "Email",
+    "gender" : "Gender",
+    "address": "Address",
+    "addUser": "Add User",
+    "delete" : "Delete",
+    "male" : "Male",
+    "female" : "Female",
+    "phnRequired" : "Phone number is required",
+    "phnIn": "Phone number is invalid",
+    "emailRequired" : "Email is required",
+    "emailIn" : "Email is invalid",
+    "fnameReq" : " FirstName is required",
+    "unameReq" : "UserName is required",
+    "passwordReq" : "Password is required"
+}

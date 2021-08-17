@@ -1,0 +1,53 @@
+{{edit}}
+<h2 mat-dialog-title>{{edit ? ('editUser' | translate ) : ('addUser' | translate)}}</h2>
+<div mat-dialog-content>
+    <form [formGroup]="addEditUserForm">
+        <mat-form-field  appearance="outline"  class="inputField">
+            <mat-label>{{'FirstName' | translate}}</mat-label>
+            <input formControlName = "firstName"  matInput>
+            <mat-error>
+              {{'fnameReq' | translate}}
+            </mat-error>
+          </mat-form-field>
+    
+          <mat-form-field  appearance="outline" class="inputField">
+            <mat-label>{{'LastName' | translate}}</mat-label>
+            <input formControlName = "lastName" matInput >
+          </mat-form-field>
+          <mat-form-field  appearance="outline"  class="inputField">
+            <mat-label>{{'PhoneNumber' | translate}}</mat-label>
+            <input  formControlName = "phoneNo" matInput maxlength="10" minlength="10" >
+            <mat-error *ngIf="addEditUserForm.get('phoneNo')?.hasError('required')">
+              {{'phnRequired' | translate}}
+            </mat-error>
+            <mat-error *ngIf="addEditUserForm.get('phoneNo')?.hasError('minlength') || addEditUserForm.get('phoneNo')?.hasError('maxlength') ">
+              {{'phnIn' | translate}}
+            </mat-error>
+          
+          </mat-form-field>
+    
+          <mat-form-field  appearance="outline" class="inputField">
+            <mat-label>{{'email' | translate}}</mat-label>
+            <input formControlName = "email" matInput >
+            <mat-error *ngIf="addEditUserForm.get('email')?.hasError('required')"> {{'emailRequired' | translate}}
+            </mat-error>
+            <mat-error *ngIf="addEditUserForm.get('email')?.hasError('pattern') && !addEditUserForm.get('email')?.hasError('required')"> {{'emailIn' | translate}}
+            </mat-error>
+          </mat-form-field>
+        
+          <mat-radio-group formControlName="gender" class="inputField">
+        <mat-radio-button color="primary" value="male" class="mar-right-10">{{'male' | translate}}</mat-radio-button>
+        <mat-radio-button color="primary" value="female">{{'female' | translate}}</mat-radio-button>
+      </mat-radio-group>
+    
+          <mat-form-field  appearance="outline" class="inputField">
+            <mat-label>{{'address' | translate}}</mat-label>
+            <input formControlName = "address" matInput >
+          </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-footer class="right">
+  <button mat-raised-button class="primary-btn mar-right-10"  (click)="add()">{{edit ?( 'edit' | translate) : ('add' | translate)}}</button>
+  <button mat-raised-button (click)="close()" >{{'cancel' | translate}}</button>
+
+</div>

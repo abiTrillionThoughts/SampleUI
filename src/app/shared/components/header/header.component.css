@@ -1,0 +1,10 @@
+.header{
+    height: 8vh;
+    background-color: #3f51b5;
+    padding-left: 10px;
+    text-align: center;
+    padding-top: 0px;
+}
+.dashboardtxt{
+    color: whitesmoke;padding-top:10px
+}
